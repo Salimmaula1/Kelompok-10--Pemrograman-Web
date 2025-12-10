@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banda Neira - Surga Tersembunyi Indonesia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+        * { font-family: 'Poppins', sans-serif; }
+
+        .hero-gradient { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
+        .text-gradient { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card-3d { transition: all 0.5s ease; }
+        .card-3d:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3); }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .float { animation: float 6s ease-in-out infinite; }
+        
+        .glow-blue { box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); }
+        .glow-blue:hover { box-shadow: 0 0 50px rgba(59, 130, 246, 0.8); }
+        
+        .pattern-bg {
+            background-color: #ffffff;
+            background-image: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 80%, rgba(29, 78, 216, 0.05) 0%, transparent 50%);
+        }
+        
+        .blue-dot { width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; display: inline-block; margin-right: 8px; }
+        
+        .ocean-animation {
+            animation: oceanGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes oceanGlow {
+            0%, 100% { text-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+            50% { text-shadow: 0 0 40px rgba(59, 130, 246, 0.8), 0 0 60px rgba(59, 130, 246, 0.6); }
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+
+    <!-- HEADER -->
+    <header class="fixed w-full top-0 left-0 z-50 bg-white/95 backdrop-blur-lg shadow-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center p-4 px-8">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="./foto/LOGO.png" alt="logo" class="h-12 object-contain drop-shadow-md">
+            </a>
+            <nav class="hidden md:flex gap-8 font-medium text-gray-800">
+                <a href="#hero" class="hover:text-blue-500 transition">Beranda</a>
+                <a href="#destinasi" class="hover:text-blue-500 transition">Destinasi</a>
+                <a href="#paket" class="hover:text-blue-500 transition">Paket Wisata</a>
+                <a href="#booking" class="hover:text-blue-500 transition">Booking</a>
+            </nav>
+            <a href="#booking" class="hidden md:block px-6 py-2 hero-gradient text-white rounded-full font-semibold hover:scale-105 transition glow-blue">Pesan Sekarang</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Video -->
+        <div class="absolute inset-0 overflow-hidden z-0">
+            <video autoplay muted loop playsinline
+                class="w-full h-full object-cover absolute top-1/2 left-1/2"
+                style="transform: translate(-50%, -50%) rotate(90deg) scale(-1); width: 100vh; height: 100vw;">
+                <source src="./vidio/banda.mp4" type="video/mp4">
+            </video>
+        </div>
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70 z-10"></div>
+        <div class="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full float z-20"></div>
+        <div class="absolute bottom-40 right-20 w-40 h-40 bg-blue-500/10 rounded-full float z-20" style="animation-delay: 2s;"></div>
+
+        <div class="relative z-30 text-center text-white px-6 max-w-6xl">
+            <h1 class="text-7xl md:text-9xl font-extrabold mb-6 drop-shadow-2xl animate__animated animate__fadeInDown ocean-animation">BANDA NEIRA</h1>
+            <div class="w-32 h-1 bg-blue-500 mx-auto mb-6"></div>
+            <p class="text-2xl md:text-3xl mb-4 font-light animate__animated animate__fadeInUp animate__delay-1s">Mutiara Tersembunyi di Maluku</p>
+            <p class="text-lg md:text-xl mb-10 opacity-90 max-w-3xl mx-auto animate__animated animate__fadeInUp animate__delay-2s">Jelajahi kepulauan bersejarah dengan laut biru kristal, terumbu karang spektakuler, dan warisan budaya rempah-rempah yang legendaris</p>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center animate__animated animate__fadeInUp animate__delay-3s">
+                <a href="#paket" class="px-10 py-4 bg-white text-blue-600 rounded-full font-bold text-lg hover:scale-105 transition shadow-2xl">⚓ Lihat Paket Wisata</a>
+                <a href="#destinasi" class="px-10 py-4 bg-white/20 backdrop-blur-sm border-2 border-white rounded-full font-bold text-lg hover:bg-white/30 transition">🏝️ Jelajahi Destinasi</a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white animate-bounce z-30">
+            <p class="text-sm mb-2">Scroll untuk melihat lebih banyak</p>
+            <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- MENGAPA BANDA NEIRA -->
+    <section class="py-24 px-6 pattern-bg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-bold mb-4">Mengapa <span class="text-gradient">Banda Neira?</span></h2>
+                <div class="w-32 h-1 hero-gradient mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Banda Neira adalah surga tersembunyi yang menawarkan kombinasi sempurna antara sejarah, budaya, dan keindahan alam bawah laut yang luar biasa!</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-3d bg-white rounded-3xl p-8 shadow-xl">
+                    <div class="text-6xl mb-6">🏛️</div>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-500">Warisan Sejarah Rempah</h3>
+                    <p class="text-gray-600 leading-relaxed">Pulau yang pernah menjadi pusat perdagangan rempah dunia! Jelajahi benteng VOC bersejarah dan jejak kolonial yang masih terjaga hingga kini.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100"><span class="text-sm text-gray-500">🌿 Pulau Pala Legendaris</span></div>
+                </div>
+
+                <div class="card-3d bg-white rounded-3xl p-8 shadow-xl">
+                    <div class="text-6xl mb-6">🤿</div>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-500">Surga Diving & Snorkeling</h3>
+                    <p class="text-gray-600 leading-relaxed">Terumbu karang yang masih sangat terjaga, visibility luar biasa, dan biodiversitas laut yang menakjubkan. Paradise bagi penyelam sejati!</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100"><span class="text-sm text-gray-500">🐠 Coral Garden Terbaik Indonesia</span></div>
+                </div>
+
+                <div class="card-3d bg-white rounded-3xl p-8 shadow-xl">
+                    <div class="text-6xl mb-6">🌋</div>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-500">Gunung Api & Lava Flow</h3>
+                    <p class="text-gray-600 leading-relaxed">Trekking ke Gunung Api Banda yang masih aktif! Panorama 360 derajat kepulauan Banda dan lava flow di bawah laut yang unik.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100"><span class="text-sm text-gray-500">⛰️ View Spektakuler</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESTINASI UTAMA -->
+    <section id="destinasi" class="py-24 px-6 bg-gradient-to-b from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-bold mb-4">Destinasi <span class="text-gradient">Wajib Dikunjungi</span></h2>
+                <div class="w-32 h-1 hero-gradient mx-auto mb-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-3d bg-white rounded-3xl overflow-hidden shadow-xl group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="./foto/benteng.jpeg" alt="Benteng Belgica" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-blue-500">Benteng Belgica</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Benteng peninggalan VOC abad ke-17 yang masih kokoh berdiri. Spot terbaik untuk melihat sunset dan panorama seluruh kepulauan Banda Neira.</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="blue-dot"></span>Benteng bersejarah terbaik</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="blue-dot"></span>View 360° kepulauan</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="blue-dot"></span>Sunset point favorit</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-white rounded-3xl overflow-hidden shadow-xl group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="./foto/lava.jpg" alt="Lava Flow Banda" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-blue-500">Lava Flow Banda</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Dive site unik dengan lava flow bawah laut dari erupsi Gunung Api. Terumbu karang tumbuh di atas aliran lava yang menakjubkan!</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="blue-dot"></span>Dive site kelas dunia</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="blue-dot"></span>Lava flow underwater</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="blue-dot"></span>Biodiversity luar biasa</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-white rounded-3xl overflow-hidden shadow-xl group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="./foto/gunung.jpg" alt="Gunung Api Banda" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-blue-500">Gunung Api Banda</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Gunung berapi aktif setinggi 666 mdpl. Trekking menantang dengan reward pemandangan kepulauan Banda yang spektakuler dari puncak!</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="blue-dot"></span>Gunung api aktif</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="blue-dot"></span>Trekking adventure</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="blue-dot"></span>Panorama memukau</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-white rounded-3xl overflow-hidden shadow-xl group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="./foto/hatta.jpg" alt="Pulau Hatta" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-blue-500">Pulau Hatta</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Snorkeling paradise dengan terumbu karang spektakuler dan ikan warna-warni! Air jernih dengan visibility hingga 30 meter.</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="blue-dot"></span>Snorkeling terbaik</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="blue-dot"></span>Coral garden pristine</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="blue-dot"></span>Air kristal jernih</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAKET WISATA -->
+    <section id="paket" class="py-24 px-6 pattern-bg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-bold mb-4">Paket Wisata <span class="text-gradient">Terbaik</span></h2>
+                <div class="w-32 h-1 hero-gradient mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Pilih paket yang sesuai dengan durasi dan budget liburanmu. Semua sudah termasuk guide, peralatan snorkeling, dan dokumentasi!</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-3d bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100">
+                    <div class="text-center mb-6">
+                        <div class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold mb-4">PAKET SINGKAT</div>
+                        <h3 class="text-3xl font-bold mb-2">Heritage Explorer</h3>
+                        <p class="text-gray-500">2 Hari 1 Malam</p>
+                    </div>
+                    <div class="text-center mb-6">
+                        <div class="text-5xl font-bold text-blue-500 mb-2">Rp 2.5jt</div>
+                        <p class="text-gray-500">per orang (min. 4 pax)</p>
+                    </div>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-start gap-3"><span class="text-blue-500 text-xl">✓</span><span class="text-gray-600">Tour Benteng Belgica & Nassau</span></div>
+                        <div class="flex items-start gap-3"><span class="text-blue-500 text-xl">✓</span><span class="text-gray-600">Museum & rumah adat</span></div>
+                        <div class="flex items-start gap-3"><span class="text-blue-500 text-xl">✓</span><span class="text-gray-600">Snorkeling Pulau Hatta</span></div>
+                        <div class="flex items-start gap-3"><span class="text-blue-500 text-xl">✓</span><span class="text-gray-600">Hotel budget AC</span></div>
+                        <div class="flex items-start gap-3"><span class="text-blue-500 text-xl">✓</span><span class="text-gray-600">Makan 3x sehari</span></div>
+                        <div class="flex items-start gap-3"><span class="text-blue-500 text-xl">✓</span><span class="text-gray-600">Dokumentasi foto</span></div>
+                    </div>
+                    <a href="#booking" class="block w-full text-center px-6 py-4 border-2 border-blue-500 text-blue-600 rounded-full font-bold hover:bg-blue-500 hover:text-white transition">Konsultasi Sekarang</a>
+                </div>
+
+                <div class="card-3d hero-gradient rounded-3xl p-8 shadow-2xl text-white relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-yellow-400 text-gray-900 rounded-full text-sm font-bold">🔥 PALING POPULER</div>
+                    <div class="text-center mb-6 mt-4">
+                        <div class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold mb-4">PAKET FAVORIT</div>
+                        <h3 class="text-3xl font-bold mb-2">Banda Adventure</h3>
+                        <p class="opacity-90">4 Hari 3 Malam</p>
+                    </div>
+                    <div class="text-center mb-6">
+                        <div class="text-5xl font-bold mb-2">Rp 6.8jt</div>
+                        <p class="opacity-90">per orang (min. 4 pax)</p>
+                    </div>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>Semua fasilitas paket 2 hari</span></div>
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>Trekking Gunung Api Banda</span></div>
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>Diving 2x di Lava Flow</span></div>
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>Island hopping 5 pulau</span></div>
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>Hotel standard AC</span></div>
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>Makan seafood lokal</span></div>
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>Dokumentasi underwater</span></div>
+                    </div>
+                    <a href="#booking" class="block w-full text-center px-6 py-4 bg-white text-blue-600 rounded-full font-bold hover:bg-yellow-400 hover:text-gray-900 transition">Konsultasi Sekarang</a>
+                </div>
+
+                <div class="card-3d bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100">
+                    <div class="text-center mb-6">
+                        <div class="inline-block px-4 py-2 bg-cyan-100 text-cyan-600 rounded-full text-sm font-semibold mb-4">PAKET PREMIUM</div>
+                        <h3 class="text-3xl font-bold mb-2">Spice Island Luxury</h3>
+                        <p class="text-gray-500">5 Hari 4 Malam</p>
+                    </div>
+                    <div class="text-center mb-6">
+                        <div class="text-5xl font-bold text-blue-500 mb-2">Rp 11.5jt</div>
+                        <p class="text-gray-500">per orang (min. 4 pax)</p>
+                    </div>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-start gap-3"><span class="text-blue-500 text-xl">✓</span><span class="text-gray-600">Semua fasilitas paket 4 hari</span></div>
+                        <div class="flex items-start gap-3"><span class="text-blue-500 text-xl">✓</span><span class="text-gray-600">Penginapan resort mewah</span></div>
+                        <div class="flex items-start gap-3"><span class="text-blue-500 text-xl">✓</span><span class="text-gray-600">Private speedboat charter</span></div>
+                        <div class="flex items-start gap-3"><span class="text-blue-500 text-xl">✓</span><span class="text-gray-600">Diving 4x dengan instructor</span></div>
+                        <div class="flex items-start gap-3"><span class="text-blue-500 text-xl">✓</span><span class="text-gray-600">Kunjungan perkebunan pala</span></div>
+                        <div class="flex items-start gap-3"><span class="text-blue-500 text-xl">✓</span><span class="text-gray-600">Menu seafood premium</span></div>
+                        <div class="flex items-start gap-3"><span class="text-blue-500 text-xl">✓</span><span class="text-gray-600">Dokumentasi drone profesional</span></div>
+                    </div>
+                    <a href="#booking" class="block w-full text-center px-6 py-4 border-2 border-blue-500 text-blue-600 rounded-full font-bold hover:bg-blue-500 hover:text-white transition">Konsultasi Sekarang</a>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-gray-600 mb-4">💡 <strong>Custom Package?</strong> Kami juga melayani paket wisata custom sesuai kebutuhan dan budget kamu!</p>
+                <a href="#booking" class="inline-block px-8 py-3 bg-gray-900 text-white rounded-full font-semibold hover:scale-105 transition">Konsultasi Gratis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING SECTION -->
+    <section id="booking" class="py-24 px-6 hero-gradient">
+        <div class="max-w-4xl mx-auto text-center text-white">
+            <h2 class="text-5xl font-bold mb-6">Siap Bertualang ke Banda Neira?</h2>
+            <p class="text-xl mb-10 opacity-90">Booking sekarang dan dapatkan diskon early bird 15% untuk pemesanan 30 hari sebelumnya!</p>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center mb-12">
+                <a href="https://wa.me/6281234567890" class="px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-lg shadow-2xl hover:shadow-white/50 hover:scale-105 transition flex items-center justify-center gap-3">
+                    <span class="text-2xl">📱</span> WhatsApp Kami
+                </a>
+                <a href="mailto:info@bandaneira.com" class="px-10 py-5 bg-white/20 backdrop-blur-sm border-2 border-white rounded-full font-bold text-lg hover:bg-white/30 transition flex items-center justify-center gap-3">
+                    <span class="text-2xl">✉️</span> Email Kami
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
+                    <div class="text-3xl mb-3">📍</div>
+                    <h4 class="font-bold mb-2">Lokasi</h4>
+                    <p class="opacity-90 text-sm">Banda Neira, Kepulauan Banda, Maluku Tengah</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
+                    <div class="text-3xl mb-3">✈️</div>
+                    <h4 class="font-bold mb-2">Akses

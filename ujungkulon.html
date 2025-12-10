@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujung Kulon - Petualangan Tak Terlupakan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+        * { font-family: 'Poppins', sans-serif; }
+
+        .hero-gradient { background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%); }
+        .text-gradient { background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-lime { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(132, 204, 22, 0.3); }
+        .card-3d { transition: all 0.5s ease; }
+        .card-3d:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(132, 204, 22, 0.3); }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .float { animation: float 6s ease-in-out infinite; }
+        
+        .glow-lime { box-shadow: 0 0 30px rgba(132, 204, 22, 0.5); }
+        .glow-lime:hover { box-shadow: 0 0 50px rgba(132, 204, 22, 0.8); }
+        
+        .pattern-bg {
+            background-color: #ffffff;
+            background-image: radial-gradient(circle at 20% 50%, rgba(132, 204, 22, 0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 80%, rgba(101, 163, 13, 0.05) 0%, transparent 50%);
+        }
+        
+        .lime-dot { width: 8px; height: 8px; background: #84cc16; border-radius: 50%; display: inline-block; margin-right: 8px; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+
+    <!-- HEADER -->
+    <header class="fixed w-full top-0 left-0 z-50 bg-white/95 backdrop-blur-lg shadow-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center p-4 px-8">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="./foto/LOGO.png" alt="logo" class="h-12 object-contain drop-shadow-md">
+            </a>
+            <nav class="hidden md:flex gap-8 font-medium text-gray-800">
+                <a href="#hero" class="hover:text-lime-500 transition">Beranda</a>
+                <a href="#destinasi" class="hover:text-lime-500 transition">Destinasi</a>
+                <a href="#paket" class="hover:text-lime-500 transition">Paket Wisata</a>
+                <a href="#booking" class="hover:text-lime-500 transition">Booking</a>
+            </nav>
+            <a href="#booking" class="hidden md:block px-6 py-2 hero-gradient text-white rounded-full font-semibold hover:scale-105 transition glow-lime">Pesan Sekarang</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Video -->
+        <div class="absolute inset-0 overflow-hidden z-0">
+            <video autoplay muted loop playsinline
+                class="w-full h-full object-cover absolute top-1/2 left-1/2"
+                style="transform: translate(-50%, -50%) rotate(90deg) scale(-1); width: 100vh; height: 100vw;">
+                <source src="./vidio/kulon.mp4" type="video/mp4">
+            </video>
+        </div>
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70 z-10"></div>
+        <div class="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full float z-20"></div>
+        <div class="absolute bottom-40 right-20 w-40 h-40 bg-white/10 rounded-full float z-20" style="animation-delay: 2s;"></div>
+
+        <div class="relative z-30 text-center text-white px-6 max-w-6xl">
+            <h1 class="text-7xl md:text-9xl font-extrabold mb-6 drop-shadow-2xl animate__animated animate__fadeInDown">UJUNG KULON</h1>
+            <div class="w-32 h-1 bg-white mx-auto mb-6"></div>
+            <p class="text-2xl md:text-3xl mb-4 font-light animate__animated animate__fadeInUp animate__delay-1s">Surga Tersembunyi di Ujung Barat Jawa</p>
+            <p class="text-lg md:text-xl mb-10 opacity-90 max-w-3xl mx-auto animate__animated animate__fadeInUp animate__delay-2s">Jelajahi keajaiban alam yang masih perawan, temui Badak Jawa langka, dan rasakan petualangan yang akan mengubah hidupmu selamanya</p>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center animate__animated animate__fadeInUp animate__delay-3s">
+                <a href="#paket" class="px-10 py-4 bg-white text-lime-600 rounded-full font-bold text-lg hover:scale-105 transition shadow-2xl">🎒 Lihat Paket Wisata</a>
+                <a href="#destinasi" class="px-10 py-4 glass-lime rounded-full font-bold text-lg hover:bg-white/20 transition">🗺️ Jelajahi Destinasi</a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white animate-bounce z-30">
+            <p class="text-sm mb-2">Scroll untuk melihat lebih banyak</p>
+            <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- MENGAPA UJUNG KULON -->
+    <section class="py-24 px-6 pattern-bg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-bold mb-4">Mengapa <span class="text-gradient">Ujung Kulon?</span></h2>
+                <div class="w-32 h-1 hero-gradient mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Taman Nasional Ujung Kulon bukan sekadar destinasi wisata biasa. Ini adalah pengalaman yang akan mengubah cara kamu melihat dunia.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-3d bg-white rounded-3xl p-8 shadow-xl">
+                    <div class="text-6xl mb-6">🦏</div>
+                    <h3 class="text-2xl font-bold mb-4 text-lime-600">Badak Jawa Langka</h3>
+                    <p class="text-gray-600 leading-relaxed">Hanya tersisa 35-50 ekor di dunia, dan semuanya ada di Ujung Kulon! Kesempatan langka untuk melihat satwa legendaris yang hampir punah.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100"><span class="text-sm text-gray-500">📍 Habitat Eksklusif</span></div>
+                </div>
+
+                <div class="card-3d bg-white rounded-3xl p-8 shadow-xl">
+                    <div class="text-6xl mb-6">🌴</div>
+                    <h3 class="text-2xl font-bold mb-4 text-lime-600">Hutan Perawan</h3>
+                    <p class="text-gray-600 leading-relaxed">122,000 hektar hutan hujan tropis yang masih asli. Lebih dari 700 spesies tumbuhan menanti untuk kamu eksplorasi!</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100"><span class="text-sm text-gray-500">🌳 Keanekaragaman Hayati Tinggi</span></div>
+                </div>
+
+                <div class="card-3d bg-white rounded-3xl p-8 shadow-xl">
+                    <div class="text-6xl mb-6">🏝️</div>
+                    <h3 class="text-2xl font-bold mb-4 text-lime-600">Pantai Eksotis</h3>
+                    <p class="text-gray-600 leading-relaxed">Pantai berpasir putih dengan air jernih, terumbu karang yang memukau, dan pulau-pulau kecil yang belum terjamah. Surga dunia!</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100"><span class="text-sm text-gray-500">🏖️ Pemandangan Spektakuler</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESTINASI UTAMA -->
+    <section id="destinasi" class="py-24 px-6 bg-gradient-to-b from-lime-50 to-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-bold mb-4">Destinasi <span class="text-gradient">Wajib Dikunjungi</span></h2>
+                <div class="w-32 h-1 hero-gradient mx-auto mb-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-3d bg-white rounded-3xl overflow-hidden shadow-xl group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="./foto/peucang.jpg" alt="Pulau Peucang" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-lime-600">Pulau Peucang</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Pulau cantik dengan pantai pasir putih, hutan tropis, dan satwa liar yang bebas berkeliaran. Spot snorkeling terbaik dengan terumbu karang yang masih perawan.</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="lime-dot"></span>Pantai berpasir putih yang lembut</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="lime-dot"></span>Snorkeling & diving spot premium</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="lime-dot"></span>Rusa & monyet liar yang ramah</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-white rounded-3xl overflow-hidden shadow-xl group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="./foto/cigenter.jpg" alt="Cigenter" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-lime-600">Cigenter</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Pusat pengamatan satwa dengan menara pandang. Tempat terbaik untuk tracking badak Jawa dan melihat banteng liar di habitat aslinya.</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="lime-dot"></span>Wildlife watching tower</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="lime-dot"></span>Habitat badak Jawa & banteng</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="lime-dot"></span>Trekking trail yang menantang</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-white rounded-3xl overflow-hidden shadow-xl group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="./foto/hand.jpg" alt="Pulau Handeuleum" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-lime-600">Pulau Handeuleum</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Pulau dengan hutan bakau yang rimbun dan sungai-sungai kecil. Habitat buaya muara dan berbagai spesies burung langka yang eksotis.</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="lime-dot"></span>Hutan mangrove yang lebat</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="lime-dot"></span>Buaya muara & ular piton</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="lime-dot"></span>Bird watching paradise</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-white rounded-3xl overflow-hidden shadow-xl group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="./foto/layar.jpg" alt="Tanjung Layar" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-lime-600">Tanjung Layar</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">Spot sunset paling ikonik dengan formasi batu karang yang menjulang seperti layar perahu. Pemandangan yang akan membuatmu terpukau!</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="lime-dot"></span>Sunset point terbaik</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="lime-dot"></span>Formasi batu karang unik</div>
+                            <div class="flex items-center gap-2 text-sm text-gray-500"><span class="lime-dot"></span>Spot foto Instagram-able</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAKET WISATA -->
+    <section id="paket" class="py-24 px-6 pattern-bg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-bold mb-4">Paket Wisata <span class="text-gradient">Terbaik</span></h2>
+                <div class="w-32 h-1 hero-gradient mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Pilih paket yang sesuai dengan budget dan durasi liburanmu. Semua sudah termasuk guide profesional!</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-3d bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100">
+                    <div class="text-center mb-6">
+                        <div class="inline-block px-4 py-2 bg-lime-100 text-lime-600 rounded-full text-sm font-semibold mb-4">PAKET HEMAT</div>
+                        <h3 class="text-3xl font-bold mb-2">Eksplorasi Singkat</h3>
+                        <p class="text-gray-500">2 Hari 1 Malam</p>
+                    </div>
+                    <div class="text-center mb-6">
+                        <div class="text-5xl font-bold text-lime-600 mb-2">Rp 2.5jt</div>
+                        <p class="text-gray-500">per orang (min. 4 pax)</p>
+                    </div>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-start gap-3"><span class="text-lime-500 text-xl">✓</span><span class="text-gray-600">Kunjungan Pulau Peucang</span></div>
+                        <div class="flex items-start gap-3"><span class="text-lime-500 text-xl">✓</span><span class="text-gray-600">Snorkeling equipment</span></div>
+                        <div class="flex items-start gap-3"><span class="text-lime-500 text-xl">✓</span><span class="text-gray-600">Trekking ringan hutan</span></div>
+                        <div class="flex items-start gap-3"><span class="text-lime-500 text-xl">✓</span><span class="text-gray-600">Penginapan homestay</span></div>
+                        <div class="flex items-start gap-3"><span class="text-lime-500 text-xl">✓</span><span class="text-gray-600">Makan 3x sehari</span></div>
+                        <div class="flex items-start gap-3"><span class="text-lime-500 text-xl">✓</span><span class="text-gray-600">Guide lokal berpengalaman</span></div>
+                    </div>
+                    <a href="#booking" class="block w-full text-center px-6 py-4 border-2 border-lime-500 text-lime-600 rounded-full font-bold hover:bg-lime-500 hover:text-white transition">Konsultasi Sekarang</a>
+                </div>
+
+                <div class="card-3d hero-gradient rounded-3xl p-8 shadow-2xl text-white relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-yellow-400 text-gray-900 rounded-full text-sm font-bold">🔥 PALING POPULER</div>
+                    <div class="text-center mb-6 mt-4">
+                        <div class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold mb-4">PAKET FAVORIT</div>
+                        <h3 class="text-3xl font-bold mb-2">Petualangan Lengkap</h3>
+                        <p class="opacity-90">3 Hari 2 Malam</p>
+                    </div>
+                    <div class="text-center mb-6">
+                        <div class="text-5xl font-bold mb-2">Rp 4.2jt</div>
+                        <p class="opacity-90">per orang (min. 4 pax)</p>
+                    </div>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>Semua fasilitas paket 2 hari</span></div>
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>Kunjungan Cigenter & Handeuleum</span></div>
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>Wildlife tracking badak & banteng</span></div>
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>Camping di pantai</span></div>
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>Island hopping 3 pulau</span></div>
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>BBQ malam di pantai</span></div>
+                        <div class="flex items-start gap-3"><span class="text-yellow-300 text-xl">✓</span><span>Foto & video dokumentasi</span></div>
+                    </div>
+                    <a href="#booking" class="block w-full text-center px-6 py-4 border-2 border-lime-500 text-white rounded-full font-bold hover:bg-lime-500 hover:text-white transition">Konsultasi Sekarang</a>
+                </div>
+
+                <div class="card-3d bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100">
+                    <div class="text-center mb-6">
+                        <div class="inline-block px-4 py-2 bg-amber-100 text-amber-600 rounded-full text-sm font-semibold mb-4">PAKET PREMIUM</div>
+                        <h3 class="text-3xl font-bold mb-2">Ultimate Adventure</h3>
+                        <p class="text-gray-500">4 Hari 3 Malam</p>
+                    </div>
+                    <div class="text-center mb-6">
+                        <div class="text-5xl font-bold text-lime-600 mb-2">Rp 6.5jt</div>
+                        <p class="text-gray-500">per orang (min. 4 pax)</p>
+                    </div>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-start gap-3"><span class="text-lime-500 text-xl">✓</span><span class="text-gray-600">Semua fasilitas paket 3 hari</span></div>
+                        <div class="flex items-start gap-3"><span class="text-lime-500 text-xl">✓</span><span class="text-gray-600">Kunjungan Tanjung Layar</span></div>
+                        <div class="flex items-start gap-3"><span class="text-lime-500 text-xl">✓</span><span class="text-gray-600">Deep jungle trekking</span></div>
+                        <div class="flex items-start gap-3"><span class="text-lime-500 text-xl">✓</span><span class="text-gray-600">Diving session (2x)</span></div>
+                        <div class="flex items-start gap-3"><span class="text-lime-500 text-xl">✓</span><span class="text-gray-600">Penginapan resort eksklusif</span></div>
+                        <div class="flex items-start gap-3"><span class="text-lime-500 text-xl">✓</span><span class="text-gray-600">Private boat & guide</span></div>
+                        <div class="flex items-start gap-3"><span class="text-lime-500 text-xl">✓</span><span class="text-gray-600">Drone footage aerial</span></div>
+                    </div>
+                    <a href="#booking" class="block w-full text-center px-6 py-4 border-2 border-lime-500 text-lime-600 rounded-full font-bold hover:bg-lime-500 hover:text-white transition">Konsultasi Sekarang</a>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-gray-600 mb-4">💡 <strong>Custom Package?</strong> Kami juga melayani paket wisata custom sesuai kebutuhan dan budget kamu!</p>
+                <a href="#booking" class="inline-block px-8 py-3 bg-gray-900 text-white rounded-full font-semibold hover:scale-105 transition">Konsultasi Gratis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING SECTION -->
+    <section id="booking" class="py-24 px-6 hero-gradient">
+        <div class="max-w-4xl mx-auto text-center text-white">
+            <h2 class="text-5xl font-bold mb-6">Siap Berpetualang?</h2>
+            <p class="text-xl mb-10 opacity-90">Booking sekarang dan dapatkan diskon early bird 15% untuk pemesanan 30 hari sebelumnya!</p>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center mb-12">
+                <a href="https://wa.me/6281234567890" class="px-10 py-5 bg-white text-lime-600 rounded-full font-bold text-lg shadow-2xl hover:shadow-white/50 hover:scale-105 transition flex items-center justify-center gap-3">
+                    <span class="text-2xl">📱</span> WhatsApp Kami
+                </a>
+                <a href="mailto:info@ujungkulon.com" class="px-10 py-5 glass-lime rounded-full font-bold text-lg hover:bg-white/20 transition flex items-center justify-center gap-3">
+                    <span class="text-2xl">✉️</span> Email Kami
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-lime rounded-2xl p-6">
+                    <div class="text-3xl mb-3">📍</div>
+                    <h4 class="font-bold mb-2">Lokasi</h4>
+                    <p class="opacity-90 text-sm">Taman Nasional Ujung Kulon, Banten, Indonesia</p>
+                </div>
+                <div class="glass-lime rounded-2xl p-6">
+                    <div class="text-3xl mb-3">⏰</div>
+                    <h4 class="font-bold mb-2">Jam Operasional</h4>
+                    <p class="opacity-90 text-sm">Setiap hari, 07:00 - 17:00 WIB</p>
+                </div>
+                <div class="glass-lime rounded-2xl p-6">
+                    <div class="text-3xl mb-3">🎫</div>
+                    <h4 class="font-bold mb-2">Harga Tiket Masuk</h4>
+                    <p class="opacity-90 text-sm">Domestik: Rp 150.000<br>Asing: Rp 300.000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="./foto/LOGO.png" alt="" srcset="">
+                    </div>
+                    <p class="text-gray-400">Destinasi wisata alam terbaik dengan keanekaragaman hayati yang luar biasa.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Navigasi</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#hero" class="hover:text-white transition">Beranda</a></li>
+                        <li><a href="#destinasi" class="hover:text-white transition">Destinasi</a></li>
+                        <li><a href="#paket" class="hover:text-white transition">Paket Wisata</a></li>
+                        <li><a href="#booking" class="
