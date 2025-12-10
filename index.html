@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>travel</title>
+    <title>ROANSA travel</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- ANIMATION (animate.css) -->
@@ -45,7 +45,7 @@
 
     <!-- Background Video -->
     <video id="bg-video" class="fixed top-0 left-0 w-full h-full object-cover z-0" autoplay muted loop playsinline>
-        <source src="./vidio/kulon.mp4" type="video/mp4">
+        <source src="kulon.mp4" type="video/mp4">
     </video>
 
 
@@ -63,7 +63,7 @@
         animate__animated animate__fadeInDown">
 
         <!-- LOGO KIRI -->
-        <img src="./foto/LOGO.png" alt="Logo" class="h-12 object-contain drop-shadow-md">
+        <img src="LOGO.png" alt="Logo" class="h-12 object-contain drop-shadow-md">
 
         <!-- MENU KANAN -->
         <nav class="flex items-center gap-12 text-gray-800 font-medium">
@@ -182,7 +182,7 @@
             <div class="text-center cursor-pointer group" onclick="showInfo('airline')">
                 <div id="icon-airline"
                     class="transition-all duration-300 w-28 h-28 bg-lime-200 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105">
-                    <img src="./foto/airplane.png" class="w-14 opacity-90" />
+                    <img src="airplane.png" class="w-14 opacity-90" />
                 </div>
             </div> <!-- ICON HOTEL -->
             <div class="text-center cursor-pointer group" onclick="showInfo('hotel')">
@@ -194,7 +194,7 @@
             <div class="text-center cursor-pointer group" onclick="showInfo('brand')">
                 <div id="icon-brand"
                     class="transition-all duration-300 w-28 h-28 bg-orange-200 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105">
-                    <img src="./foto/LOGO.png" class="w-14 opacity-90" />
+                    <img src="LOGO.png" class="w-14 opacity-90" />
                 </div>
             </div>
         </div> <!-- AREA INFORMASI YANG MUNCUL -->
@@ -213,7 +213,7 @@
 
                 <!-- HEADER -->
                 <div class="flex items-center gap-5 mb-10">
-                    <img src="./foto/LOGO.png"
+                    <img src="LOGO.png"
                         class="w-20 h-20 object-contain rounded-full shadow-lg border border-lime-300 p-2" alt="logo">
 
                     <h2 class="text-4xl font-bold text-gray-900">
@@ -293,7 +293,7 @@
     const slides = [
         {
             name: "Ujung Kulon",
-            video: "./vidio/kulon.mp4",
+            video: "kulon.mp4",
             subtitle: "Mengexplore Ujung Kulon",
             subtitleColor: "text-lime-300",
             desc: "3 hari menjelajah keindahan Ujung Kulon",
@@ -306,7 +306,7 @@
         },
         {
             name: "Labuan Bajo",
-            video: "./vidio/labuan.mp4",
+            video: "labuan.mp4",
             subtitle: "Mengexplore Labuan Bajo",
             subtitleColor: "text-red-500",
             desc: "3 hari menjelajah keindahan Labuan Bajo",
@@ -319,7 +319,7 @@
         },
         {
             name: "Banda Neira",
-            video: "./vidio/banda.mp4",
+            video: "banda.mp4",
             subtitle: "Mengexplore Banda Neira",
             subtitleColor: "text-blue-500",
             desc: "3 hari menjelajah keindahan Banda Neira",
@@ -521,5 +521,6 @@
 
 
 </body>
+
 
 </html>
