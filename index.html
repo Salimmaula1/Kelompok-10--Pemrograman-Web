@@ -1,277 +1,519 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ROANSA Travel</title>
-
-    <!-- Tailwind -->
+    <title>travel</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Animate -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
+    <!-- ANIMATION (animate.css) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
+        /* Animasi zoom + rotate untuk teks */
         .zoom-rotate {
             transform: scale(1.05) rotate(5deg);
             transition: transform 0.6s ease-in-out;
         }
-        .fade-out { opacity: 0; transition: opacity .4s; }
-        .fade-in { opacity: 1; transition: opacity .4s; }
 
-        @media (max-width: 768px) {
-            #main-title {
-                left: 50% !important;
-                transform: translateX(-50%);
-                text-align: center;
-            }
-            #slide-title {
-                right: 50% !important;
-                transform: translateX(50%);
-                font-size: 2.5rem !important;
-                text-align: center;
-            }
-            video {
-                transform: none !important;
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover;
-            }
+        /* Reset transform */
+        .reset-transform {
+            transform: scale(1) rotate(0deg);
+        }
+
+        /* Crossfade video */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .fade-in {
+            opacity: 1;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        /* Rotate 90 derajat untuk video Labuan Bajo */
+        .rotate-90 {
+            transform: rotate-(90);
+            transition: transform 0.6s ease-in-out;
         }
     </style>
+
 </head>
 
 <body class="overflow-x-hidden">
 
-<!-- VIDEO -->
-<video id="bg-video" class="fixed inset-0 w-full h-full object-cover z-0" autoplay muted loop playsinline>
-    <source src="kulon.mp4" type="video/mp4">
-</video>
+    <!-- Background Video -->
+    <video id="bg-video" class="fixed top-0 left-0 w-full h-full object-cover z-0" autoplay muted loop playsinline>
+        <source src="./vidio/kulon.mp4" type="video/mp4">
+    </video>
 
-<div class="fixed inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70 z-10"></div>
 
-<!-- HEADER -->
-<header class="fixed z-40 top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl
-bg-white/80 backdrop-blur-xl shadow-lg flex items-center justify-between
-px-6 md:px-10 py-3 md:py-4 rounded-full animate__animated animate__fadeInDown">
-    <img src="LOGO.png" class="h-12 object-contain">
-    <nav class="flex gap-8 text-gray-800 font-medium">
-        <a href="#" class="hover:text-lime-500">Beranda</a>
-        <a href="#tentang" class="hover:text-lime-500">Tentang</a>
-        <a href="#kontak" class="hover:text-lime-500">Kontak</a>
-    </nav>
-</header>
+    <!-- Gradient Overlay -->
+    <div class="fixed top-0 left-0 w-full h-full bg-gradient-to-b from-black/20 via-black/40 to-black/70 z-10"></div>
 
-<div class="h-28"></div>
+    <!-- ============================
+         HEADER (STICKY + ELEGAN)
+    ============================ -->
+    <header class="fixed top-14 left-72  z-40
+        bg-white/80 backdrop-blur-xl shadow-lg
+        w-[60%] max-w-[1300px]
+        flex items-center justify-between 
+        px-10 py-4 rounded-full
+        animate__animated animate__fadeInDown">
 
-<main class="relative min-h-screen z-20">
+        <!-- LOGO KIRI -->
+        <img src="./foto/LOGO.png" alt="Logo" class="h-12 object-contain drop-shadow-md">
 
-    <!-- MAIN TITLE -->
-    <div id="main-title"
-        class="absolute top-1/4 z-20 left-1/2 -translate-x-1/2
-        md:left-28 md:translate-x-0 text-white text-center md:text-left">
+        <!-- MENU KANAN -->
+        <nav class="flex items-center gap-12 text-gray-800 font-medium">
+            <a href="#" class="hover:text-lime-500 transition">Beranda</a>
+            <a href="#tentang" class="hover:text-lime-500 transition">Tentang</a>
+            <a href="#kontak" class="hover:text-lime-500 transition">Kontak</a>
+        </nav>
+        <style>
+            .circle-stroke {
+                border: 4px solid white;
+                /* tebal dan warna stroke */
+                transition: all 0.3s;
+            }
 
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight max-w-md">
-            EXPLORE <br> UNTUK KENANGAN <br>
-            <span id="highlight-text" class="text-lime-300">TAK TERLUPAKAN</span>
-        </h1>
+            .circle-stroke:hover {
+                border-color: limegreen;
+                /* ganti warna saat hover */
+            }
 
-        <p id="subtitle" class="text-3xl font-semibold mt-4 text-lime-300">
-            Mengexplore Ujung Kulon
-        </p>
+            /* Posisi titik pada garis (0%, 50%, 100%) */
+#dot-0 { left: 0%; }
+#dot-1 { left: 50%; transform: translate(-50%, -50%); }
+#dot-2 { right: 0%; }
 
-        <p id="desc-text" class="mt-3 opacity-80">
-            3 hari menjelajah keindahan Ujung Kulon
-        </p>
+        </style>
+    </header>
 
-        <a id="main-btn" href="ujungkulon.html"
-           class="inline-flex mt-8 items-center gap-3 border px-6 py-3 rounded-full
-           bg-white/10 backdrop-blur hover:scale-105 transition">
-            <div class="w-4 h-4 bg-lime-300 rounded-full"></div>
-            Lihat Selengkapnya
-        </a>
-    </div>
+    <!-- Spacer agar header tidak nutup konten -->
+    <div class="h-32 w-full"></div>
 
-    <!-- SLIDE TITLE -->
-    <h2 id="slide-title"
-        class="absolute top-20 right-1/2 translate-x-1/2
-        md:right-1/4 md:translate-x-0
-        text-4xl md:text-8xl font-bold text-white z-50">
-    </h2>
 
-    <!-- NEXT BUTTON -->
-    <div class="fixed z-50 bottom-24 right-6 md:top-52 md:right-20 flex flex-col items-center">
-        <button id="toggle-video"
-            class="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-white
-            text-white text-3xl font-bold hover:scale-110 transition">
-            &gt;
-        </button>
-        <p class="text-white text-sm mt-2 opacity-80">klik untuk lihat</p>
+    <main class="min-h-screen relative z-20">
 
-        <!-- PROGRESS -->
-        <div class="relative w-24 h-1 bg-white/30 rounded-full mt-4">
-            <div id="active-dot"
-                class="absolute top-0 w-8 h-1 bg-lime-300 rounded-full"></div>
+        <!-- Left Title -->
+        <div id="main-title" class="absolute z-20 top-36 left-16 text-white animate__animated animate__fadeInUp">
+            <h1 class="text-5xl font-extrabold leading-tight w-[29rem]">
+                EXPLORE <br />
+                UNTUK KENANGAN <br />
+                <span id="highlight-text" class="text-lime-300">TAK TERLUPAKAN</span>
+            </h1>
+
+            <div class="mt-10 flex items-center gap-4">
+                <a href="ujungkulon.html" id="main-btn"
+                    class="flex items-center gap-3 border border-white/40 px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm hover:scale-105 transition">
+                    <div class="w-4 h-4 bg-lime-300 rounded-full"></div>
+                    Lihat Selengkapnya
+                </a>
+            </div>
         </div>
-    </div>
 
-</main>
+        <h2 id="slide-title" class="absolute top-24 right-1/4 text-8xl font-bold text-white z-50"></h2>
 
-<!-- TENTANG -->
-<section id="tentang" class="relative z-30 bg-white px-6 md:px-20 py-20 md:py-28">
 
-    <h2 class="text-4xl font-bold text-center mb-12">Kenapa Memilih Kami?</h2>
+        <!-- Right Info -->
+        <div class="fixed top-52 right-44 z-50 flex flex-col items-center">
 
-    <div class="flex justify-center gap-12 mb-10">
-        <button id="icon-airline" onclick="showInfo('airline')" class="text-5xl hover:scale-110 transition">✈️</button>
-        <button id="icon-hotel" onclick="showInfo('hotel')" class="text-5xl hover:scale-110 transition">🏨</button>
-        <button id="icon-brand" onclick="showInfo('brand')" class="text-5xl hover:scale-110 transition">⭐</button>
-    </div>
+            <!-- Tombol Bulat -->
+            <button id="toggle-video"
+                class="w-24 h-24 flex items-center justify-center rounded-full border-4 border-white text-white text-3xl font-bold shadow-[0_0_25px_rgba(255,255,255,0.5)]hover:scale-110 transition">
+                &gt;
+            </button>
 
-    <div id="info-box"
-        class="max-w-2xl mx-auto bg-gray-100 p-8 rounded-2xl opacity-0
-        pointer-events-none transition">
-        <h3 id="info-title" class="text-2xl font-bold mb-4"></h3>
-        <p id="info-desc"></p>
-    </div>
-
-</section>
-
-<!-- KONTAK -->
-<section id="kontak" class="relative z-30 py-10 text-white">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="bg-white/10 backdrop-blur rounded-3xl shadow-xl p-12">
-            <h2 class="text-4xl font-bold mb-6">Contact Person</h2>
-            <p>Instagram: @travelagency</p>
-            <p>WhatsApp: +62 812-3456-7890</p>
-            <p>Email: travelagency@gmail.com</p>
-            <p>Alamat: Jakarta</p>
+            <!-- Tulisan kecil di bawah tombol -->
+            <p class="text-white text-sm mt-3 opacity-80">klik ini untuk melihat lihat</p>
         </div>
+
+        <div id="right-info" class="absolute z-20 top-[21rem] left-[35rem] text-white animate__animated animate__fadeInUp animate__delay-1s">
+            <h3 id="subtitle" class="text-3xl font-semibold text-lime-300">Mengexplore Ujung Kulon</h3>
+            <p id="desc-text" class="text-lg text-white">3 hari menjelajah keindahan Ujung Kulon</p>
+            <div class="mt-5 space-y-2 text-xs opacity-70">
+                <p>✔ KENANGAN TAK TERLUPAKAN</p>
+                <p>✔ BOKING 3 MENIT SAJA</p>
+            </div>
+        </div>
+
+        <!-- Scroll Down -->
+        <p class="absolute bottom-40 right-10 text-white text-sm opacity-70 animate__animated animate__fadeInUp animate__delay-3s">SCROLL DOWN ▼</p>
+    </main>
+
+<!-- SLIDE PROGRESS -->
+<div id="slide-progress"
+     class="absolute bottom-16 left-1/2 -translate-x-1/2 z-50 w-1/2">
+
+    <div class="relative w-full h-2 bg-white/30 rounded-full">
+
+        <!-- Titik bergerak -->
+        <div id="active-dot"
+             class="absolute top-1/2 -translate-y-1/2 w-6 h-6 rounded-full transition-all duration-500">
+        </div>
+
+        <!-- Titik posisi statis -->
+        <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white/40 rounded-full left-0"></div>
+        <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white/40 rounded-full left-1/2 -translate-x-1/2"></div>
+        <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white/40 rounded-full right-0"></div>
+
     </div>
-</section>
+</div>
 
-<!-- SCRIPT -->
-<script>
-const toggleBtn = document.getElementById("toggle-video");
-const video = document.getElementById("bg-video");
-const mainTitle = document.getElementById("main-title");
-const highlightText = document.getElementById("highlight-text");
-const mainBtn = document.getElementById("main-btn");
-const subtitle = document.getElementById("subtitle");
-const descText = document.getElementById("desc-text");
-const slideTitle = document.getElementById("slide-title");
-const progressDot = document.getElementById("active-dot");
 
-const slides = [
-    {
-        name: "Ujung Kulon",
-        video: "kulon.mp4",
-        subtitle: "Mengexplore Ujung Kulon",
-        subtitleColor: "text-lime-300",
-        desc: "3 hari menjelajah keindahan Ujung Kulon",
-        highlight: "TAK TERLUPAKAN",
-        highlightColor: "text-lime-300",
-        btn: `<div class="w-4 h-4 bg-lime-300 rounded-full"></div> Lihat Selengkapnya`,
-        href: "ujungkulon.html",
-        dotColor: "#84cc16"
-    },
-    {
-        name: "Labuan Bajo",
-        video: "labuan.mp4",
-        subtitle: "Mengexplore Labuan Bajo",
-        subtitleColor: "text-red-500",
-        desc: "3 hari menjelajah keindahan Labuan Bajo",
-        highlight: "SANGAT MEMUKAU",
-        highlightColor: "text-red-500",
-        btn: `<div class="w-4 h-4 bg-red-500 rounded-full"></div> Lihat Paket`,
-        href: "labuanbajo.html",
-        dotColor: "#ef4444"
-    },
-    {
-        name: "Banda Neira",
-        video: "banda.mp4",
-        subtitle: "Mengexplore Banda Neira",
-        subtitleColor: "text-blue-500",
-        desc: "3 hari menjelajah keindahan Banda Neira",
-        highlight: "MENAKJUBKAN",
-        highlightColor: "text-blue-500",
-        btn: `<div class="w-4 h-4 bg-blue-500 rounded-full"></div> Lihat Paket`,
-        href: "bandaneira.html",
-        dotColor: "#3b82f6"
+
+
+    <section class="relative z-20 bg-white text-gray-800 px-20 py-28" id="tentang">
+        <h2 class="text-4xl font-bold text-center mb-8">Kenapa Memilih Kami?</h2>
+        <p class="text-center max-w-2xl mx-auto opacity-70"> Kami bekerja sama dengan berbagai pihak untuk menghadirkan
+            layanan terbaik, dari perjalanan, penginapan, hingga penyediaan paket adventure profesional. </p>
+        <!-- WRAPPER -->
+        <div class="mt-20 flex justify-center gap-20"> <!-- ICON PESAWAT -->
+            <div class="text-center cursor-pointer group" onclick="showInfo('airline')">
+                <div id="icon-airline"
+                    class="transition-all duration-300 w-28 h-28 bg-lime-200 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105">
+                    <img src="./foto/airplane.png" class="w-14 opacity-90" />
+                </div>
+            </div> <!-- ICON HOTEL -->
+            <div class="text-center cursor-pointer group" onclick="showInfo('hotel')">
+                <div id="icon-hotel"
+                    class="transition-all duration-300 w-28 h-28 bg-blue-200 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105">
+                    <img src="https://cdn-icons-png.flaticon.com/512/139/139899.png" class="w-14 opacity-90" />
+                </div>
+            </div> <!-- ICON BRAND (LOGO SENDIRI) -->
+            <div class="text-center cursor-pointer group" onclick="showInfo('brand')">
+                <div id="icon-brand"
+                    class="transition-all duration-300 w-28 h-28 bg-orange-200 rounded-full flex items-center justify-center shadow-xl group-hover:scale-105">
+                    <img src="./foto/LOGO.png" class="w-14 opacity-90" />
+                </div>
+            </div>
+        </div> <!-- AREA INFORMASI YANG MUNCUL -->
+        <div id="info-box" class="mt-16 text-center opacity-0 pointer-events-none transition-all duration-300">
+            <h3 id="info-title" class="text-3xl font-semibold mb-4 animate__animated"></h3>
+            <p id="info-desc" class="text-lg max-w-3xl mx-auto opacity-90 animate__animated"></p>
+        </div>
+    </section>
+
+    <section id="kontak" class="relative z-30 py-6 backdrop-blur-2xl ">>
+
+        <div class="max-w-7xl mx-auto px-12">
+
+            <!-- WRAPPER -->
+            <div class="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-lime-200 p-20">
+
+                <!-- HEADER -->
+                <div class="flex items-center gap-5 mb-10">
+                    <img src="./foto/LOGO.png"
+                        class="w-20 h-20 object-contain rounded-full shadow-lg border border-lime-300 p-2" alt="logo">
+
+                    <h2 class="text-4xl font-bold text-gray-900">
+                        Contact Person
+                    </h2>
+                </div>
+
+                <!-- CONTENT -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+                    <!-- LEFT DETAILS -->
+                    <div class="space-y-5 text-gray-700 text-lg">
+
+                        <p class="flex items-center gap-4">
+                            <i class="fa-brands fa-instagram text-pink-500 text-3xl"></i>
+                            <span><strong>Instagram:</strong> @travelagency</span>
+                        </p>
+
+                        <p class="flex items-center gap-4">
+                            <i class="fa-brands fa-whatsapp text-green-600 text-3xl"></i>
+                            <span><strong>WhatsApp:</strong> +62 812-3456-7890</span>
+                        </p>
+
+                        <p class="flex items-center gap-4">
+                            <i class="fa-solid fa-envelope text-blue-500 text-3xl"></i>
+                            <span><strong>Email:</strong> travelagency@gmail.com</span>
+                        </p>
+
+                        <p class="flex items-center gap-4">
+                            <i class="fa-solid fa-location-dot text-red-500 text-3xl"></i>
+                            <span><strong>Alamat:</strong> Jl. Melati No. 23, Jakarta</span>
+                        </p>
+
+                    </div>
+
+                    <!-- RIGHT DECOR / CTA -->
+                    <div
+                        class="flex flex-col justify-center items-center bg-lime-50 rounded-2xl p-8 shadow-inner border border-lime-200">
+
+                        <h3 class="text-2xl font-semibold text-gray-900 text-center">Butuh Bantuan?</h3>
+                        <p class="text-gray-600 text-center mt-2">
+                            Tim kami siap membantu 24 jam untuk informasi paket wisata, booking, dan konsultasi
+                            perjalanan.
+                        </p>
+
+                        <a href="https://wa.me/6281234567890"
+                            class="mt-6 px-8 py-3 rounded-full bg-lime-500 text-white font-semibold shadow-lg hover:bg-lime-600 transition-all">
+                            Hubungi Kami Sekarang →
+                        </a>
+
+                        
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <a href="https://travelshift.com/" class="flex text-xl text-white justify-center items-center font-medium text-center mt-8">Refrensi : Travelshift.com</a>
+    </section>
+
+
+
+    <script>
+    const toggleBtn = document.getElementById("toggle-video");
+
+    // Elemen utama
+    const video = document.getElementById("bg-video");
+    const mainTitle = document.getElementById("main-title");
+    const highlightText = document.getElementById("highlight-text");
+    const mainBtn = document.getElementById("main-btn");
+    const subtitle = document.getElementById("subtitle");
+    const descText = document.getElementById("desc-text");
+    const slideTitle = document.getElementById("slide-title");
+
+    // PROGRESS DOT UTAMA
+    const progressDot = document.getElementById("active-dot");
+
+    // Data Slide
+    const slides = [
+        {
+            name: "Ujung Kulon",
+            video: "./vidio/kulon.mp4",
+            subtitle: "Mengexplore Ujung Kulon",
+            subtitleColor: "text-lime-300",
+            desc: "3 hari menjelajah keindahan Ujung Kulon",
+            highlight: "TAK TERLUPAKAN",
+            highlightColor: "text-lime-300",
+            btn: `<div class="w-4 h-4 bg-lime-300 rounded-full"></div> Lihat Selengkapnya`,
+            href: "ujungkulon.html",
+            rotate: true,
+            dotColor: "#84cc16" 
+        },
+        {
+            name: "Labuan Bajo",
+            video: "./vidio/labuan.mp4",
+            subtitle: "Mengexplore Labuan Bajo",
+            subtitleColor: "text-red-500",
+            desc: "3 hari menjelajah keindahan Labuan Bajo",
+            highlight: "SANGAT MEMUKAU",
+            highlightColor: "text-red-500",
+            btn: `<div class="w-4 h-4 bg-red-500 rounded-full"></div> Lihat Paket Labuan Bajo`,
+            href: "labuanbajo.html",
+            rotate: true,
+            dotColor: "#ef4444"
+        },
+        {
+            name: "Banda Neira",
+            video: "./vidio/banda.mp4",
+            subtitle: "Mengexplore Banda Neira",
+            subtitleColor: "text-blue-500",
+            desc: "3 hari menjelajah keindahan Banda Neira",
+            highlight: "MENAKJUBKAN",
+            highlightColor: "text-blue-500",
+            btn: `<div class="w-4 h-4 bg-blue-500 rounded-full"></div> Lihat Paket Banda Neira`,
+            href: "bandaneira.html",
+            rotate: true,
+            dotColor: "#3b82f6"
+        }
+    ];
+
+    // Typewriter
+    function typeWriterTwoColor(element, title, colorClass, speed = 150) {
+    element.innerHTML = `
+        <span id="w1" class="text-white"></span>
+        <span id="w2" class="${colorClass}"></span>
+    `;
+
+    const words = title.split(" ");
+    const word1 = words[0];
+    const word2 = words.slice(1).join(" ");
+
+    const span1 = document.getElementById("w1");
+    const span2 = document.getElementById("w2");
+
+    const fullText = [word1, word2];  
+    let combined = word1 + " " + word2;  
+    let i = 0;
+
+    const typing = setInterval(() => {
+        const current = combined.substring(0, i);
+
+        // Update span1 & span2 sesuai panjang ketikan
+        if (i <= word1.length) {
+            span1.textContent = current;
+        } else {
+            span1.textContent = word1 + " ";
+            span2.textContent = current.substring(word1.length + 1);
+        }
+
+        i++;
+        if (i > combined.length) clearInterval(typing);
+    }, speed);
+}
+
+
+
+    let currentIndex = 0;
+
+
+    function setSlideTitle(title, colorClass) {
+    const words = title.split(" ");
+
+    // Kalo cuma 1 kata, langsung tampilkan biasa
+    if (words.length < 2) {
+        slideTitle.innerHTML = `<span class="text-white">${title}</span>`;
+        return;
     }
-];
 
-let currentIndex = 0;
-const progressPositions = ["0%", "33%", "66%"];
+    const first = words[0];
+    const second = words[1];
 
-function typeWriterTwoColor(el, text, colorClass) {
-    const words = text.split(" ");
-    el.innerHTML = `
-        <span class="text-white">${words[0]}</span>
-        <span class="${colorClass}"> ${words.slice(1).join(" ")}</span>
+    slideTitle.innerHTML = `
+        <span class="text-white">${first}</span>
+        <span class="${colorClass}"> ${second}</span>
     `;
 }
 
-function setSlide(index) {
-    const s = slides[index];
+    function setSlide(index) {
+        const slide = slides[index];
 
-    mainBtn.innerHTML = s.btn;
-    mainBtn.href = s.href;
+        // Tombol
+        mainBtn.innerHTML = slide.btn;
+        mainBtn.href = slide.href;
 
-    subtitle.innerText = s.subtitle;
-    subtitle.className = `text-3xl font-semibold mt-4 ${s.subtitleColor}`;
+        // Zoom animasi
+        mainTitle.classList.add("zoom-rotate");
 
-    descText.innerText = s.desc;
-    highlightText.innerText = s.highlight;
-    highlightText.className = s.highlightColor;
+        // Fade video
+        video.classList.add("fade-out");
 
-    mainTitle.classList.add("zoom-rotate");
+        setTimeout(() => {
+            video.src = slide.video;
+            video.play();
 
-    video.classList.add("fade-out");
-    setTimeout(() => {
-        video.src = s.video;
-        video.play();
-        video.classList.remove("fade-out");
-        video.classList.add("fade-in");
-    }, 400);
+            video.classList.remove("fade-out");
+            video.classList.add("fade-in");
 
-    typeWriterTwoColor(slideTitle, s.name, s.subtitleColor);
-    progressDot.style.left = progressPositions[index];
-    progressDot.style.backgroundColor = s.dotColor;
+            if (slide.rotate) {
+                video.style.transform = "rotate(270deg) translate(56%, 26%)";
+                video.style.transformOrigin = "center center";
+                video.style.width = "100vh";
+                video.style.height = "100vw";
+            } else {
+                video.style.transform = "rotate(0deg)";
+                video.style.width = "100%";
+                video.style.height = "100%";
+            }
+        }, 400);
 
-    setTimeout(() => mainTitle.classList.remove("zoom-rotate"), 800);
-}
+        // Text
+        subtitle.innerText = slide.subtitle;
+        subtitle.className = `text-3xl font-semibold ${slide.subtitleColor}`;
 
-toggleBtn.onclick = () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    setSlide(currentIndex);
-};
+        descText.innerText = slide.desc;
 
-function showInfo(type) {
-    const box = document.getElementById("info-box");
-    const title = document.getElementById("info-title");
-    const desc = document.getElementById("info-desc");
+        highlightText.innerText = slide.highlight;
+        highlightText.className = slide.highlightColor;
 
-    if (type === "airline") {
-        title.innerText = "Kerja Sama Maskapai Terbaik";
-        desc.innerText = "Kami bekerja sama dengan maskapai terpercaya di Indonesia.";
+        // Typewriter title kanan
+        typeWriterTwoColor(slideTitle, slide.name, slide.subtitleColor);
+
+
+
+        // Reset animasi
+        setTimeout(() => mainTitle.classList.remove("zoom-rotate"), 800);
+
+        // PROGRESS DOT UPDATE
+        updateProgressDot(index);
     }
-    if (type === "hotel") {
-        title.innerText = "Partner Hotel & Penginapan";
-        desc.innerText = "Hotel pilihan dari standar hingga premium.";
-    }
-    if (type === "brand") {
-        title.innerText = "Travel Sejak 2025";
-        desc.innerText = "Dipercaya sebagai travel profesional.";
+
+    // Tombol Next Slide
+    toggleBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        setSlide(currentIndex);
+    });
+
+    // ================================
+    // PROGRESS DOT (GARIS BAWAH SLIDE)
+    // ================================
+    const progressPositions = ["0%", "50%", "100%"];
+
+    function updateProgressDot(index) {
+        const slide = slides[index];
+
+        progressDot.style.left = progressPositions[index];
+        progressDot.style.backgroundColor = slide.dotColor;
+        progressDot.style.transition = "left 0.45s ease, background-color 0.3s ease";
     }
 
-    box.classList.remove("opacity-0", "pointer-events-none");
-    box.classList.add("opacity-100");
-}
-
-setSlide(0);
+    // Set awal
+    setSlide(0);
+    updateProgressDot(0);
 </script>
 
+<script>
+    let active = null;
+
+    function showInfo(type) {
+        const infoBox = document.getElementById("info-box");
+        const title = document.getElementById("info-title");
+        const desc = document.getElementById("info-desc");
+
+        title.classList.remove("animate__fadeInDown");
+        desc.classList.remove("animate__fadeInUp");
+
+        document.getElementById("icon-airline").classList.remove("scale-125");
+        document.getElementById("icon-hotel").classList.remove("scale-125");
+        document.getElementById("icon-brand").classList.remove("scale-125");
+
+        active = type;
+
+        if (type === "airline") {
+            title.innerText = "Kerja Sama Maskapai Terbaik";
+            desc.innerHTML = `
+                Kami telah menjalin kerja sama resmi dengan beberapa maskapai terpercaya di Indonesia.
+                Ini memastikan perjalananmu selalu nyaman, aman, dan mendapatkan penawaran harga terbaik.
+                Dengan jaringan rute yang luas, kami mampu menghadirkan paket perjalanan yang fleksibel.
+            `;
+            document.getElementById("icon-airline").classList.add("scale-125");
+        }
+
+        if (type === "hotel") {
+            title.innerText = "Partner Resmi Hotel & Penginapan";
+            desc.innerHTML = `
+                Kami bekerja sama dengan berbagai hotel mulai dari kelas standar hingga premium.
+                Setiap penginapan dipilih berdasarkan kualitas dan kenyamanan.
+            `;
+            document.getElementById("icon-hotel").classList.add("scale-125");
+        }
+
+        if (type === "brand") {
+            title.innerText = "Travel Kami Berdiri Sejak 2025";
+            desc.innerHTML = `
+                Berdiri sejak 2025, kami telah dipercaya sebagai penyedia layanan travel profesional.
+            `;
+            document.getElementById("icon-brand").classList.add("scale-125");
+        }
+
+        infoBox.classList.remove("opacity-0", "pointer-events-none");
+        infoBox.classList.add("opacity-100");
+
+        title.classList.add("animate__fadeInDown");
+        desc.classList.add("animate__fadeInUp");
+    }
+</script>
+
+
+
 </body>
+
 </html>
